@@ -1,12 +1,12 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import { Routes } from './Routes';
+import {createStackNavigator} from 'react-navigation-stack';
+import {Routes} from './Routes';
 import Colors from '../Utils/Colors';
 
 const Navigator = loggedIn =>
   createStackNavigator(
     Routes,
     {
-      initialRouteName: 'App',
+      initialRouteName: loggedIn === '0' ? 'Login' : 'App',
       mode: 'card',
     },
     {
