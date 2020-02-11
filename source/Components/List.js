@@ -58,15 +58,19 @@ export default class List extends Component {
   };
 
   edit = value => {
-    let item = {
-      key: this.state.textInput_Holder,
-    };
-    var index = this.state.data.findIndex(item => item.key === value);
-    this.state.data[index] = item;
+    if (this.state.textInput_Holder && this.state.textInput_Holder !== '') {
+      let item = {
+        key: this.state.textInput_Holder,
+      };
+      var index = this.state.data.findIndex(item => item.key === value);
+      this.state.data[index] = item;
 
-    this.setState({
-      data: this.state.data,
-    });
+      this.setState({
+        data: this.state.data,
+      });
+    } else {
+      alert('fill the text');
+    }
   };
 
   delete = value => {

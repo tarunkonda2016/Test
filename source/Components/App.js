@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,9 @@ import {
   InteractionManager,
   StyleSheet,
 } from 'react-native';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import QuantityComponent from './QuantityComponent';
-import { PizzaActionCreator } from '../ReduxClasses/ActionCreator/PizzaActionCreator';
+import {PizzaActionCreator} from '../ReduxClasses/ActionCreator/PizzaActionCreator';
 
 class App extends Component {
   constructor(props) {
@@ -25,16 +25,16 @@ class App extends Component {
   }
 
   clear = () => {
-    const { dispatch } = this.props;
+    const {dispatch} = this.props;
     dispatch(PizzaActionCreator.getDataClear());
   };
 
   customerClick = value => {
     if (this.state.selected !== value) {
-      const { dispatch } = this.props;
+      const {dispatch} = this.props;
       dispatch(PizzaActionCreator.getDataChange(value));
       InteractionManager.runAfterInteractions(() => {
-        this.setState({ selected: value }, () => {
+        this.setState({selected: value}, () => {
           this.forceUpdate();
         });
       });
@@ -134,10 +134,10 @@ class App extends Component {
               />
             </View>
 
-            <View style={{ flexDirection: 'row', margin: 10 }}>
-              <Text style={{ fontSize: 20, color: 'black', width: '60%' }}>
+            <View style={{flexDirection: 'row', margin: 10}}>
+              <Text style={{fontSize: 20, color: 'black', width: '60%'}}>
                 Small Pizza{' '}
-                <Text style={{ fontSize: 15, color: 'grey' }}>$269.99</Text>
+                <Text style={{fontSize: 15, color: 'grey'}}>$269.99</Text>
               </Text>
 
               <QuantityComponent
@@ -148,10 +148,10 @@ class App extends Component {
               />
             </View>
 
-            <View style={{ flexDirection: 'row', margin: 10 }}>
-              <Text style={{ fontSize: 20, color: 'black', width: '60%' }}>
+            <View style={{flexDirection: 'row', margin: 10}}>
+              <Text style={{fontSize: 20, color: 'black', width: '60%'}}>
                 Medium Pizza{' '}
-                <Text style={{ fontSize: 15, color: 'grey' }}>$322.99</Text>
+                <Text style={{fontSize: 15, color: 'grey'}}>$322.99</Text>
               </Text>
               <QuantityComponent
                 selected={this.state.selected}
@@ -161,10 +161,10 @@ class App extends Component {
               />
             </View>
 
-            <View style={{ flexDirection: 'row', margin: 10 }}>
-              <Text style={{ fontSize: 20, color: 'black', width: '60%' }}>
+            <View style={{flexDirection: 'row', margin: 10}}>
+              <Text style={{fontSize: 20, color: 'black', width: '60%'}}>
                 Large Pizza{' '}
-                <Text style={{ fontSize: 15, color: 'grey' }}>$269.99</Text>
+                <Text style={{fontSize: 15, color: 'grey'}}>$269.99</Text>
               </Text>
 
               <QuantityComponent
@@ -175,11 +175,11 @@ class App extends Component {
               />
             </View>
 
-            <View style={{ flexDirection: 'row', margin: 10 }}>
-              <View style={{ width: '40%' }} />
+            <View style={{flexDirection: 'row', margin: 10}}>
+              <View style={{width: '40%'}} />
 
-              <View style={{ width: '60%' }}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+              <View style={{width: '60%'}}>
+                <Text style={{fontSize: 18, fontWeight: 'bold'}}>
                   Total : $
                   {Math.round((this.total() + Number.EPSILON) * 100) / 100}
                 </Text>
@@ -199,7 +199,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(App);
 
 const styles = StyleSheet.create({
-  safeAreaContainer: { flex: 1 },
-  container: { flex: 1, flexDirection: 'column' },
-  btnStyleView: { margin: 5 },
+  safeAreaContainer: {flex: 1},
+  container: {flex: 1, flexDirection: 'column'},
+  btnStyleView: {margin: 5},
 });
