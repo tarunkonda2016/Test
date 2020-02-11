@@ -24,7 +24,7 @@ export default class Application extends Component {
       const userInfo = await GoogleSignin.signInSilently();
       this.setState({appState: userInfo !== undefined ? '1' : '0'});
     } catch (error) {
-      this.setState({appState: '1'});
+      this.setState({appState: '0'});
     }
   }
 
