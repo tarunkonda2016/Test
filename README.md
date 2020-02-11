@@ -8,6 +8,8 @@ Test Project using React-Native
 4.Redux-thunk
 5.React Navigation
 6.Drawer & Tab Navigator
+6.GsignIn Authentication
+6.FlatList edit,delete and add functionality
 
 You can find screenshots on screenshots Folder. 
 
